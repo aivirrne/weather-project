@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <link href="src/styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/89b755450b.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="card weather-card">
+        <div class="card-body">
+          <div class="searchbar">
+            <form class="row g-3 align-items-center" id="city-form">
+              <div class="col-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter the city name..."
+                  id="city-input"
+                />
+              </div>
+
+              <div class="col-auto">
+                <input type="submit" value="Search" class="btn btn-primary" />
+              </div>
+
+              <div class="col-auto">
+                <input
+                  type="button"
+                  value="My location"
+                  class="btn btn-light"
+                  id="button-my-location"
+                />
+              </div>
+            </form>
+          </div>
+
+          <div class="current-city">
+            <p>
+              Current weather in <span id="users-city"> Kyiv </span><br />
+              <span id="current-day">Mon, 13:00</span>
+            </p>
+          </div>
+
+          <div class="row g-3 current-weather">
+            <div class="col-4 align-self-center">
+              <div class="sun-icon">☀️</div>
+            </div>
+            <div class="col-4 align-self-center">
+              <h1 class="h1-temp"><span id="temperature">26</span>°C</h1>
+              <h2 class="h2-weather" id="weather-description">Sunny</h2>
+            </div>
+            <div class="col-4 align-self-center">
+              <p class="wind-rain-hum">
+                ⭐️ Feels like: <span id="feel-temp">24</span>°C<br />
+                💨 Wind: <span id="wind">8</span> mph <br />
+                💧 Humidity: <span id="humidity">30</span>%
+              </p>
+            </div>
+          </div>
+
+          <div class="row g-5">
+            <div class="col">
+              <div class="icon-next-day">🌤</div>
+              <p class="text-next-day">Tue <br />22°C-25°C</p>
+            </div>
+            <div class="col">
+              <div class="icon-next-day">⛅️</div>
+              <p class="text-next-day">Wed <br />20°C-23°C</p>
+            </div>
+            <div class="col">
+              <div class="icon-next-day">🌧</div>
+              <p class="text-next-day">Thu <br />17°C-19°C</p>
+            </div>
+            <div class="col">
+              <div class="icon-next-day">⛈</div>
+              <p class="text-next-day">Fri <br />15°C-16°C</p>
+            </div>
+            <div class="col">
+              <div class="icon-next-day">🌤</div>
+              <p class="text-next-day">Sat <br />22°C-25°C</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="src/index.js"></script>
+  </body>
+</html>
