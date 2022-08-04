@@ -39,7 +39,7 @@ function showTemperature(response) {
   let temp = document.querySelector("#temperature");
   temp.innerHTML = `${Math.round(response.data.main.temp)}`;
   let weatherDescription = document.querySelector("#weather-description");
-  weatherDescription.innerHTML = `${response.data.weather[0].main}`;
+  weatherDescription.innerHTML = `${response.data.weather[0].description}`;
   let feelTemp = document.querySelector("#feel-temp");
   feelTemp.innerHTML = `${Math.round(response.data.main.feels_like)}`;
   let wind = document.querySelector("#wind");
@@ -66,3 +66,9 @@ userCity.addEventListener("submit", submitCity);
 
 let userLocation = document.querySelector("#button-my-location");
 userLocation.addEventListener("click", defineLocation);
+
+function backgroundColor(weather) {
+  if ((weather = "clear sky")) {
+    let;
+  }
+}

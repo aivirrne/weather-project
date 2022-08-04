@@ -1,12 +1,15 @@
-.sun-icon {
-  font-size: 120px;
-  text-align: center;
-  margin-left: 40px;
+.weather-card {
+  max-width: 700px;
+  margin: 36px auto;
+  border: 1px solid #dadde1;
+  padding: 20px;
+  border-radius: 6px;
 }
 
-.weather-card {
-  max-width: 800px;
-  margin: 36px auto;
+.weather-icon {
+  font-size: 120px;
+  text-align: center;
+  margin-left: 0px;
 }
 
 .searchbar,
@@ -16,17 +19,20 @@
 
 .h1-temp {
   text-align: center;
+  font-size: 40px;
 }
 
 .h2-weather {
   text-align: center;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   font-weight: 300;
   font-size: 20px;
 }
 
 .wind-rain-hum {
-  vertical-align: middle;
+  width: fit-content;
+  display: block;
+  margin: 0 auto;
 }
 
 .icon-next-day {
@@ -41,6 +47,11 @@
 
 .credits {
   font-size: 12px;
-  padding: 10px 20px;
+  padding-top: 20px;
   color: gray;
+}
+
+.wind-rain-hum-block {
+  display: block;
+  margin: auto 0;
 }
