@@ -34,12 +34,35 @@ function submitCity(event) {
   axios.get(apiUrl).then(showTemperature);
 }
 
+const emojis = {
+  "01d": "☀️",
+  "01n": "✨",
+  "02d": "🌤",
+  "02n": "☁️",
+  "03d": "⛅️",
+  "03n": "☁️",
+  "04d": "☁️",
+  "04n": "☁️",
+  "09d": "🌧",
+  "09n": "🌧",
+  "10d": "🌦",
+  "10n": "🌧",
+  "11d": "🌩",
+  "11n": "🌩",
+  "13d": "❄️",
+  "13n": "❄️",
+  "50d": "🌫",
+  "50n": "🌫",
+};
+
 function showTemperature(response) {
   console.log(response);
   let temp = document.querySelector("#temperature");
   temp.innerHTML = `${Math.round(response.data.main.temp)}`;
   let weatherDescription = document.querySelector("#weather-description");
   weatherDescription.innerHTML = `${response.data.weather[0].description}`;
+  let weatherIcon = document.querySelector("#weather-icon");
+  weatherIcon.innerHTML = emojis[`${response.data.weather[0].icon}`];
   let feelTemp = document.querySelector("#feel-temp");
   feelTemp.innerHTML = `${Math.round(response.data.main.feels_like)}`;
   let wind = document.querySelector("#wind");
@@ -67,7 +90,7 @@ userCity.addEventListener("submit", submitCity);
 let userLocation = document.querySelector("#button-my-location");
 userLocation.addEventListener("click", defineLocation);
 
-function backgroundColor(weather) {
+function weatherIcon(weather) {
   if ((weather = "clear sky")) {
     let;
   }
