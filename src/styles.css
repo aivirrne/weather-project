@@ -1,9 +1,14 @@
 .weather-card {
   max-width: 700px;
-  margin: 36px auto;
+  margin: 36px auto 0px;
   border: 1px solid #dadde1;
   padding: 20px;
   border-radius: 6px;
+}
+
+.page-content {
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .weather-icon {
