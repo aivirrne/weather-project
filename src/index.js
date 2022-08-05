@@ -1,5 +1,3 @@
-let apiKey = "5764ce29e95921a10969a7f5a4043872";
-
 function currentDay() {
   let now = new Date();
   let days = [
@@ -24,15 +22,6 @@ function currentDay() {
   current.innerHTML = `${day}, ${hours}:${minutes}`;
 }
 currentDay();
-
-function submitCity(event) {
-  event.preventDefault();
-  let submittedCity = document.querySelector("#city-input");
-
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${submittedCity.value}&appid=${apiKey}&units=metric`;
-
-  axios.get(apiUrl).then(showTemperature);
-}
 
 const emojis = {
   "01d": "☀️",
@@ -84,14 +73,22 @@ function defineLocation() {
   navigator.geolocation.getCurrentPosition(showLocation);
 }
 
+function searchCity(city) {
+  let apiKey = "5764ce29e95921a10969a7f5a4043872";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemperature);
+}
+
+function submitCity(event) {
+  event.preventDefault();
+  let submittedCity = document.querySelector("#city-input");
+  searchCity(submittedCity.value);
+}
+
 let userCity = document.querySelector("#city-form");
 userCity.addEventListener("submit", submitCity);
 
 let userLocation = document.querySelector("#button-my-location");
 userLocation.addEventListener("click", defineLocation);
 
-function weatherIcon(weather) {
-  if ((weather = "clear sky")) {
-    let;
-  }
-}
+searchCity("Wroclaw");
