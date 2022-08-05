@@ -63,6 +63,7 @@ function showTemperature(response) {
 }
 
 function showLocation(position) {
+  let apiKey = "5764ce29e95921a10969a7f5a4043872";
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
