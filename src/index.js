@@ -60,6 +60,8 @@ function showTemperature(response) {
   humidity.innerHTML = `${response.data.main.humidity}`;
   let writtenCity = document.querySelector("#users-city");
   writtenCity.innerHTML = `${response.data.name}`;
+
+  getForecast(response.data.coord);
 }
 
 function showLocation(position) {
@@ -86,11 +88,13 @@ function submitCity(event) {
   searchCity(submittedCity.value);
 }
 
-function showForecast() {
+function showForecast(response) {
+  console.log(response.data);
   let forecastElement = document.querySelector("#weather-forecast");
 
-  let forecastHTML = `<div class="row g-5">`;
   let days = ["Mon", "Tue", "Wed", "Thu"];
+
+  let forecastHTML = `<div class="row g-5">`;
   days.forEach(function (day) {
     forecastHTML =
       forecastHTML +
@@ -115,6 +119,14 @@ function showForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 
+function getForecast(coordinates) {
+  let apiKey = "5764ce29e95921a10969a7f5a4043872";
+  let lat = coordinates.lat;
+  let lon = coordinates.lon;
+  let apiUrlForecast = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrlForecast).then(showForecast);
+}
+
 let userCity = document.querySelector("#city-form");
 userCity.addEventListener("submit", submitCity);
 
@@ -122,4 +134,3 @@ let userLocation = document.querySelector("#button-my-location");
 userLocation.addEventListener("click", defineLocation);
 
 searchCity("Wroclaw");
-showForecast();
