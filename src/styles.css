@@ -67,3 +67,12 @@
   text-align: center;
   max-width: 100px;
 }
+
+.forecast-temp-min {
+  color: gray;
+}
+
+.week-day {
+  text-transform: uppercase;
+  font-size: 12px;
+}

@@ -89,30 +89,28 @@ function submitCity(event) {
 }
 
 function showForecast(response) {
-  console.log(response.data);
+  let forecastDailyData = response.data.daily;
+  console.log(forecastDailyData);
   let forecastElement = document.querySelector("#weather-forecast");
 
-  let days = ["Mon", "Tue", "Wed", "Thu"];
-
   let forecastHTML = `<div class="row g-5">`;
-  days.forEach(function (day) {
+  forecastDailyData.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       `
       <div class="col">
         <div class="forecast-icon">🌤</div>
-          <div class="text-next-day">
-            ${day}
-          <div>
+        <div class="text-next-day">
+          <div class="week-day">${forecastDay.dt}</div>
           <span class="forecast-temp-max" id="forecast-temp-max">
-            22°
+            ${Math.round(forecastDay.temp.max)}°
           </span>
           <span class="forecast-temp-min" id="forecast-temp-min">
-            25°
-          </span>
+           ${Math.round(forecastDay.temp.min)}°
+         </span>
         </div>
       </div>
-      </div>
+      
   `;
   });
   forecastHTML = forecastHTML + `</div>`;
