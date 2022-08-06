@@ -86,6 +86,35 @@ function submitCity(event) {
   searchCity(submittedCity.value);
 }
 
+function showForecast() {
+  let forecastElement = document.querySelector("#weather-forecast");
+
+  let forecastHTML = `<div class="row g-5">`;
+  let days = ["Mon", "Tue", "Wed", "Thu"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col">
+        <div class="forecast-icon">🌤</div>
+          <div class="text-next-day">
+            ${day}
+          <div>
+          <span class="forecast-temp-max" id="forecast-temp-max">
+            22°
+          </span>
+          <span class="forecast-temp-min" id="forecast-temp-min">
+            25°
+          </span>
+        </div>
+      </div>
+      </div>
+  `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 let userCity = document.querySelector("#city-form");
 userCity.addEventListener("submit", submitCity);
 
@@ -93,3 +122,4 @@ let userLocation = document.querySelector("#button-my-location");
 userLocation.addEventListener("click", defineLocation);
 
 searchCity("Wroclaw");
+showForecast();
