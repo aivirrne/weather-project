@@ -88,20 +88,28 @@ function submitCity(event) {
   searchCity(submittedCity.value);
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 function showForecast(response) {
   let forecastDailyData = response.data.daily;
   console.log(forecastDailyData);
   let forecastElement = document.querySelector("#weather-forecast");
 
   let forecastHTML = `<div class="row g-5">`;
-  forecastDailyData.forEach(function (forecastDay) {
-    forecastHTML =
-      forecastHTML +
-      `
-      <div class="col">
-        <div class="forecast-icon">🌤</div>
+  forecastDailyData.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col">
+        <div class="forecast-icon">${emojis[forecastDay.weather[0].icon]}</div>
         <div class="text-next-day">
-          <div class="week-day">${forecastDay.dt}</div>
+          <div class="week-day">${formatDay(forecastDay.dt)}</div>
           <span class="forecast-temp-max" id="forecast-temp-max">
             ${Math.round(forecastDay.temp.max)}°
           </span>
@@ -109,9 +117,8 @@ function showForecast(response) {
            ${Math.round(forecastDay.temp.min)}°
          </span>
         </div>
-      </div>
-      
-  `;
+      </div>`;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;

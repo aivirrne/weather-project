@@ -70,6 +70,10 @@
 
 .forecast-temp-min {
   color: gray;
+  font-size: 14px;
+}
+.forecast-temp-max {
+  font-size: 14px;
 }
 
 .week-day {
